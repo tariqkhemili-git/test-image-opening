@@ -16,33 +16,45 @@ main {
   background-color: hsl(216, 13%, 30%);
 }
 
+/* Base size of image before click */
 .image {
-  width: 300px;
+  width: min(70vw, 300px); /* responsive but capped */
   cursor: pointer;
 }
 
-.active {
-  position: absolute;
+/* Expanded state (common styles) */
+.image.active {
+  position: fixed;           /* relative to viewport */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 100vh;
-  width: auto;
   z-index: 1000;
   cursor: default;
 }
 
-@media (max-width: 480px) {
-  .active {
+/* Portrait screens: constrain width, let height follow */
+@media (orientation: portrait) {
+  .image.active {
     width: 100vw;
     height: auto;
+    max-height: 100vh;       /* just in case of weird bars/toolbars */
   }
 }
 
+/* Landscape screens: constrain height, let width follow */
+@media (orientation: landscape) {
+  .image.active {
+    height: 100vh;
+    width: auto;
+    max-width: 100vw;
+  }
+}
+
+/* Close button */
 #close-btn {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   visibility: hidden;
-  position: absolute;
+  position: fixed;           /* keep it pinned to viewport */
   top: 20px;
   right: 20px;
   background-color: white;
@@ -52,4 +64,14 @@ main {
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  z-index: 1100;             /* above the image */
+}
+
+/* Optional: tweak close button on very small screens */
+@media (max-width: 480px) {
+  #close-btn {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+  }
 }
