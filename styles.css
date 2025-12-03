@@ -69,16 +69,23 @@ main {
   position: fixed; /* keep it pinned to viewport */
   top: 20px;
   right: 20px;
-  background-color: #ff0000;
-  color: white;
   border: none;
   outline: transparent;
   border-radius: 10px;
   font-size: 18px;
-  padding: 5px 10px;
+  padding: 10px 15px;
   cursor: pointer;
   z-index: 1100; /* above the image */
-  box-shadow: #ff0000 0px 0px 10px 0px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+#close-btn:hover,
+#close-btn:focus,
+#close-btn:active {
+  background-color: rgba(255, 255, 255, 0.22);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
 /* Tweak close button on very small screens */
