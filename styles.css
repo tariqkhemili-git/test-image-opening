@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+body::selection {
+  background-color: transparent;
+}
+
 main {
   display: grid;
   place-items: center;
@@ -22,7 +26,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  height: 100vh;
+  width: auto;
   z-index: 1000;
   cursor: default;
 }

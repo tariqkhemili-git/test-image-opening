@@ -10,7 +10,7 @@ huskyImage.addEventListener("click", () => {
   }
 });
 
-main.addEventListener("click", (e) => {
+main.addEventListener("mousedown", (e) => {
   if (huskyImage.classList.contains("active") && e.target !== huskyImage) {
     huskyImage.classList.remove("active");
     main.style.backgroundColor = "hsl(216, 13%, 30%)";
@@ -18,7 +18,7 @@ main.addEventListener("click", (e) => {
   }
 });
 
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener("mousedown", () => {
   huskyImage.classList.remove("active");
   main.style.backgroundColor = "hsl(216, 13%, 30%)";
   closeBtn.style.visibility = "hidden";
