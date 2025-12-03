@@ -32,6 +32,13 @@ main {
   cursor: default;
 }
 
+@media (max-width: 480px) {
+  .active {
+    width: 100vw;
+    height: auto;
+  }
+}
+
 #close-btn {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   visibility: hidden;
